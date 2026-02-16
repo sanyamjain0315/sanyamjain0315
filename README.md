@@ -6,11 +6,8 @@ Artificial intelligence student
 
 I have been an AI enthusiast since my first year of college and have found that there is soo much to discover in this field. I am great at machine learning and neural networks, while constantly upgrading myself everyday
 
-* 🌍  I'm based in Mumbai
+* 🌍  I'm based in Boston, United States
 * ✉️  You can contact me at [sanyamjain0315@gmail.com](mailto:sanyamjain0315@gmail.com)
-* 🧠  I'm learning GANs and generative AI
-* 🤝  I'm open to collaborating on Computer vision and text generation projects
-* ⚡  I love this niche thing called video games, have you heard of them?
 
 ### Skills
 
