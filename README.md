@@ -1,30 +1,40 @@
-Hi 👋 My name is Sanyam Jain
-============================
+<h1 align="center">Sanyam Jain</h1>
 
-Artificial intelligence student
--------------------------------
-
-I have been an AI enthusiast since my first year of college and have found that there is soo much to discover in this field. I am great at machine learning and neural networks, while constantly upgrading myself everyday
-
-* 🌍  I'm based in Boston, United States
-* ✉️  You can contact me at [sanyamjain0315@gmail.com](mailto:sanyamjain0315@gmail.com)
-
-### Skills
-
-
-<p align="left">
-<a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" width="36" height="36" alt="Python" /></a><a href="https://docs.microsoft.com/en-us/cpp/?view=msvc-170" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/c-colored.svg" width="36" height="36" alt="C" /></a><a href="https://docs.microsoft.com/en-us/cpp/?view=msvc-170" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/cplusplus-colored.svg" width="36" height="36" alt="C++" /></a><a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg" width="36" height="36" alt="Git" /></a><a href="https://www.oracle.com/java/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" width="36" height="36" alt="Java" /></a><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="36" height="36" alt="HTML5" /></a><a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="36" height="36" alt="CSS3" /></a><a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg" width="36" height="36" alt="MongoDB" /></a><a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" width="36" height="36" alt="MySQL" /></a><a href="https://firebase.google.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/firebase-colored.svg" width="36" height="36" alt="Firebase" /></a><a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/flask-colored-dark.svg" width="36" height="36" alt="Flask" /></a><a href="https://www.tensorflow.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tensorflow-colored.svg" width="36" height="36" alt="TensorFlow" /></a>
+<p align="center">
+  <strong>Applied AI &amp; backend engineering</strong><br>
+  M.S. Computer Science candidate · Boston University
 </p>
 
+<p align="center">
+  <a href="#selected-work">Selected work</a> ·
+  <a href="#current-work">Current work</a> ·
+  <a href="https://www.linkedin.com/in/sanyamsuniljain/">LinkedIn</a>
+</p>
 
-### Socials
+## Selected work
 
-<p align="left"> <a href="https://discord.com/users/sans_de_man" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="undefined" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="32" height="32" /> </picture> </a> <a href="https://www.github.com/sanyamjain0315" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="32" height="32" /> </picture> </a> <a href="http://www.instagram.com/sans_de_man" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="undefined" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/instagram.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/instagram.svg" width="32" height="32" /> </picture> </a> <a href="https://www.linkedin.com/in/sanyam-jain-350836233/" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" /> </picture> </a> <a href="https://www.x.com/sans_de_man" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" /> </picture> </a></p>
+### NoDust
 
-### Badges
+**Real-time air-quality monitoring** · `Kafka` `Spark` `PostgreSQL`
 
-<b>My GitHub Stats</b>
+I built a streaming pipeline that reads simulated sensor data from Kafka, stores hourly averages in PostgreSQL, and publishes anomaly alerts back to Kafka.
 
-<a href="http://www.github.com/sanyamjain0315"><img src="https://github-readme-stats.vercel.app/api?username=sanyamjain0315&show_icons=true&hide=&count_private=true&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="sanyamjain0315's GitHub stats" /></a>
+[![NoDust architecture showing simulated sensors, Kafka, Spark, and PostgreSQL](https://raw.githubusercontent.com/sanyamjain0315/NoDust/main/material/nodust-architecture.png)](https://github.com/sanyamjain0315/NoDust/blob/main/material/nodust-architecture.png)
 
-<a href="http://www.github.com/sanyamjain0315"><img src="https://github-readme-streak-stats.herokuapp.com/?user=sanyamjain0315&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
+[Source code](https://github.com/sanyamjain0315/NoDust) · [Run with Docker Compose](https://github.com/sanyamjain0315/NoDust#quick-start)
+
+### CUDA wildfire simulation
+
+**Monte Carlo simulation** · `C++` `CUDA`
+
+I wrote the CPU baseline and implemented dynamic parallelism in the GPU version. In our benchmark, kernel time was `~1.2 ms` with dynamic parallelism and `~40 ms` with one CUDA stream per simulation.
+
+[Source code](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation) · [Benchmark report](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation/blob/main/writeup/CUDA%20project%20report.pdf)
+
+- **Go stream-processing research** — I evaluated cache bypassing, async prefetching, and cross-batch caching across read-heavy and write-heavy workloads.
+- **[YT Gatekeeper](https://github.com/sanyamjain0315/yt-gatekeeper)** — I published a Chrome extension that shows your daily YouTube time and adds a short pause before you keep watching. [Chrome Web Store](https://chromewebstore.google.com/detail/yt-gatekeeper/paggklmpeoleddkmffideelfdcgmcbjm)
+
+## Current work
+
+- **BU Spark! · Phone-tree navigation** — I’m building an agent for a healthcare administration client. I wrote a simulator to test how quickly and reliably local models decide when to dial, wait, or hand off.
+- **Talks.ai · Sign language recognition** — I’ve trained models for continuous American Sign Language recognition and benchmarked seven video recognition architectures.
