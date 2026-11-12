@@ -1,56 +1,60 @@
-<p align="center">
-  <img src="assets/cover.png" width="100%" alt="Sanyam Jain — Applied AI and backend engineering. M.S. Computer Science candidate at Boston University. A stormy seascape portfolio cover inspired by Ivan Aivazovsky, with deep blue water and pale golden sky.">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/header-light.svg">
+  <img src="assets/header-light.svg" width="100%" alt="Sanyam Jain — Backend systems and local AI. The original Ship on a Stormy Sea by Ivan Aivazovsky, 1858, displayed in full beneath my name.">
+</picture>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sanyamsuniljain/">LinkedIn</a> &nbsp; · &nbsp;
   <a href="mailto:sanyamjain0315@gmail.com">Email</a> &nbsp; · &nbsp;
-  <a href="#projects-and-skills">Projects &amp; skills in text</a>
+  <a href="#selected-work">Selected work</a>
 </p>
 
-<img src="assets/about.png" width="100%" alt="I tinker with event-driven backends and local AI agents. I believe AI should be open-source, private, and under its users’ control. My experiments also include graph neural networks for sign language recognition. I sketch regularly and love story-driven games and old paintings. Aivazovsky’s Ship on a Stormy Sea is my favorite.">
+I’m **Sanyam**, an M.S. Computer Science candidate at **Boston University**. I build event-driven backends and experiment with local AI agents. I’m happiest working out how a system behaves as events arrive, queues fill, and models make decisions.
 
-<a href="https://github.com/sanyamjain0315/NoDust"><img src="assets/nodust.png" width="100%" alt="NoDust — A streaming pipeline for air-quality monitoring. Simulated sensor events become hourly aggregates and anomaly alerts. Python, Kafka, Spark, and PostgreSQL. Open the project."></a>
+I believe AI should be **open-source, private, and under its users’ control**. That keeps me tinkering with local models—and learning something new about backend engineering every day.
 
-<a href="https://github.com/sanyamjain0315/cuda-wildfirespread-simulation"><img src="assets/cuda.png" width="100%" alt="Wildfire simulation — I built the CPU baseline and GPU dynamic parallelism for a Monte Carlo wildfire simulator. C++, CUDA, and performance profiling. Open the repository for code and the benchmark report."></a>
+## Selected work
 
-<a href="https://github.com/sanyamjain0315/yt-gatekeeper"><img src="assets/gatekeeper.png" width="100%" alt="YT Gatekeeper — A published Chrome extension that shows daily YouTube time and adds a short pause before continuing. Built with JavaScript. Open the project."></a>
+### [NoDust](https://github.com/sanyamjain0315/NoDust)
 
-<img src="assets/research.png" width="100%" alt="Research and client work. BU Spark — testing local-model decisions for an AI phone-tree navigation agent. Talks.ai — training continuous ASL recognition models and benchmarking seven video recognition architectures. BU research — evaluating Go cache bypassing, async prefetching, and cross-batch caching.">
+A streaming pipeline that turns simulated air-quality sensor events into hourly aggregates and anomaly alerts. Kafka carries the events, Spark processes them, and PostgreSQL stores the results.
 
-<img src="assets/skills.png" width="100%" alt="Skills. Languages — Python, Go, C++, SQL, Java. Applied AI — PyTorch, computer vision, llama.cpp, RAG. Backend and data — FastAPI, Kafka, Spark, PostgreSQL. Infrastructure — Docker, AWS, Google Cloud, GitHub Actions.">
+**Python · Kafka · Spark · PostgreSQL**  
+[Architecture](https://github.com/sanyamjain0315/NoDust/blob/main/material/nodust-architecture.png) · [Run it locally](https://github.com/sanyamjain0315/NoDust#quick-start)
 
-<a id="projects-and-skills"></a>
-<details>
-<summary>Read the projects and skills in text</summary>
+### [CUDA wildfire simulation](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation)
 
-I’m an M.S. Computer Science candidate at Boston University, working on applied AI and backend systems.
+Monte Carlo wildfire simulation on the GPU. I wrote the CPU baseline and implemented CUDA dynamic parallelism, then compared the approaches through profiling and benchmarks.
 
-I tinker with event-driven backends and local AI agents. I believe AI should be open-source, private, and under its users’ control. My experiments also include graph neural networks for sign language recognition.
+**C++ · CUDA · Performance profiling**  
+[Benchmark report](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation/blob/main/writeup/CUDA%20project%20report.pdf)
 
-I sketch regularly and love story-driven games and old paintings. Aivazovsky’s Ship on a Stormy Sea is my favorite :)
+### [YT Gatekeeper](https://github.com/sanyamjain0315/yt-gatekeeper)
 
-### Selected work
+A Chrome extension I published to make YouTube use more intentional: daily watch-time tracking and a short pause before continuing.
 
-- **NoDust** — I built a pipeline that reads simulated sensor data from Kafka, stores hourly averages in PostgreSQL, and publishes anomaly alerts back to Kafka. [Code](https://github.com/sanyamjain0315/NoDust) · [Architecture](https://github.com/sanyamjain0315/NoDust/blob/main/material/nodust-architecture.png) · [Quick start](https://github.com/sanyamjain0315/NoDust#quick-start)
-- **CUDA wildfire simulation** — I wrote the CPU baseline and implemented dynamic parallelism in the GPU version. In our benchmark, kernel time was approximately 1.2 ms with dynamic parallelism and 40 ms with one CUDA stream per simulation. [Code](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation) · [Report](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation/blob/main/writeup/CUDA%20project%20report.pdf)
-- **YT Gatekeeper** — I published a Chrome extension that shows daily YouTube time and adds a short pause before you keep watching. [Code](https://github.com/sanyamjain0315/yt-gatekeeper) · [Chrome Web Store](https://chromewebstore.google.com/detail/yt-gatekeeper/paggklmpeoleddkmffideelfdcgmcbjm)
+**JavaScript · Chrome Extensions**  
+[Chrome Web Store](https://chromewebstore.google.com/detail/yt-gatekeeper/paggklmpeoleddkmffideelfdcgmcbjm)
 
-### Research and client work
+<img src="assets/current.svg" width="100%" height="36" alt="">
 
-- **BU Spark!** — I’m building a phone-tree navigation agent for a healthcare administration client. I wrote a simulator to test how quickly and reliably local models decide when to dial, wait, or hand off.
-- **Talks.ai** — I’ve trained models for continuous American Sign Language recognition and benchmarked seven video recognition architectures.
-- **Go stream processing** — At BU, I evaluated cache bypassing, async prefetching, and cross-batch caching across read-heavy and write-heavy workloads.
+### Research &amp; ongoing work
 
-### Skills
+- **Local AI for phone navigation · BU Spark!** — Building an agent for a healthcare administration client, with a simulator to test when local models dial, wait, or hand off.
+- **Computer vision &amp; ASL · Talks.ai** — Training continuous sign-language recognition models and benchmarking video architectures. I’m also exploring graph neural networks for sign recognition.
+- **Go stream processing · BU** — Evaluating cache bypassing, asynchronous prefetching, and cross-batch caching across read-heavy and write-heavy workloads.
 
-| Area | Tools and experience |
-| --- | --- |
-| Languages | Python, Go, C++, SQL, Java |
-| Applied AI | PyTorch, computer vision, llama.cpp, RAG |
-| Backend and data | FastAPI, Kafka, Spark, PostgreSQL |
-| Infrastructure | Docker, AWS, Google Cloud, GitHub Actions |
+### Tools I work with
 
-</details>
+**Backend &amp; data** &nbsp; Python, Go, SQL, FastAPI, Kafka, Spark, PostgreSQL  
+**AI &amp; systems** &nbsp; PyTorch, computer vision, llama.cpp, RAG, C++, CUDA  
+**Infrastructure** &nbsp; Docker, AWS, Google Cloud, GitHub Actions
 
-<p align="center"><sub>Cover artwork reinterprets Ivan Aivazovsky’s Ship on a Stormy Sea (1858).</sub></p>
+### Away from the terminal
+
+I sketch regularly, get absorbed in story-driven games, and love old paintings. Aivazovsky’s *Ship on a Stormy Sea* is my favorite—the original painting at the top of this page.
+
+<img src="assets/current.svg" width="100%" height="36" alt="">
+
+<p align="center"><sub>Ivan Aivazovsky · <i>Ship on a Stormy Sea</i> · 1858</sub></p>
