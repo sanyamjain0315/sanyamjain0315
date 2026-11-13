@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
   "username": "sanyamjain0315",
-  "retrieved_at_utc": "2026-11-13T07:10:34Z",
+  "retrieved_at_utc": "2026-11-13T07:17:21Z",
   "repository_count": 20,
   "fork_count": 4,
   "repositories_with_language_data": 19,
   "scope": {
-    "visibility": "public and private",
+    "visibility": "public",
     "ownership": "owned by sanyamjain0315 (not organization or contributed repositories)",
     "includes_forks": true,
     "includes_profile_repository": true,
@@ -15,7 +15,7 @@
     "deduplicated": false,
     "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply.",
     "repository_details_published": false,
-    "coverage": "Token-accessible owned repositories"
+    "coverage": "Public owned repositories"
   },
   "total_bytes": 21030150,
   "language_count": 16,
@@ -63,23 +63,13 @@
     },
     {
       "name": "CSS",
-      "bytes": 31873,
-      "percentage": 0.07
+      "bytes": 10895,
+      "percentage": 0.05
     },
     {
-      "name": "JavaScript",
-      "bytes": 24477,
-      "percentage": 0.06
-    },
-    {
-      "name": "MATLAB",
-      "bytes": 5221,
-      "percentage": 0.01
-    },
-    {
-      "name": "Go",
-      "bytes": 3218,
-      "percentage": 0.01
+      "name": "C++",
+      "bytes": 9175,
+      "percentage": 0.04
     },
     {
       "name": "Mermaid",
@@ -103,12 +93,7 @@
     },
     {
       "name": "Dockerfile",
-      "bytes": 958,
-      "percentage": 0.0
-    },
-    {
-      "name": "CMake",
-      "bytes": 672,
+      "bytes": 747,
       "percentage": 0.0
     },
     {
