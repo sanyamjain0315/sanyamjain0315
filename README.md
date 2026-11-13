@@ -76,7 +76,7 @@ A Chrome extension I published to make YouTube use more intentional: daily watch
   </picture>
 </a>
 
-<sub>Public repositories owned by me, including forks and this profile. Private repositories are excluded. Percentages measure GitHub-reported language bytes—not proficiency or time spent. Only aggregated statistics are published; no repository inventory. Refreshed weekly via GitHub Actions.</sub>
+<sub>Public repositories owned by me, including forks and this profile. Private repositories are excluded. HTML and Jupyter Notebook are excluded, and percentages are recalculated from the remaining language bytes—not proficiency or time spent. Only aggregated statistics are published; no repository inventory. Refreshed weekly via GitHub Actions.</sub>
 
 <a name="skills-and-tools"></a>
 

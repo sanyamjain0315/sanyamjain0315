@@ -28,6 +28,7 @@ USERNAME = "sanyamjain0315"
 ROOT = Path(__file__).resolve().parents[1]
 API_ROOT = "https://api.github.com"
 TIMEOUT_SECONDS = 30
+EXCLUDED_LANGUAGES = frozenset({"HTML", "Jupyter Notebook"})
 PALETTE = (
     "#3572a5", "#e5a228", "#9864d9", "#d45e78", "#269e91", "#dc7946",
     "#5585d4", "#a77a36", "#b260b0", "#638b45", "#c75252", "#498fa4",
@@ -37,7 +38,7 @@ SCOPE = {
     "ownership": "owned by sanyamjain0315 (not organization or contributed repositories)",
     "includes_forks": True,
     "includes_profile_repository": True,
-    "language_exclusions": [],
+    "language_exclusions": sorted(EXCLUDED_LANGUAGES),
     "measure": "Sum of GitHub REST /repos/{owner}/{repo}/languages byte counts",
     "deduplicated": False,
     "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply.",
@@ -144,10 +145,11 @@ def collect_stats():
             for language, count in languages.items()
         ):
             raise StatsError("GitHub returned an invalid language-byte response; no assets have been written.")
-        for language, count in languages.items():
-            if count:
-                totals[language] = totals.get(language, 0) + count
-        repositories_with_data += any(languages.values())
+        included = {language: count for language, count in languages.items()
+                    if language not in EXCLUDED_LANGUAGES and count}
+        for language, count in included.items():
+            totals[language] = totals.get(language, 0) + count
+        repositories_with_data += bool(included)
         print(f"Languages processed: {index}/{len(repositories)}", flush=True)
     return {
         "schema_version": 2,
@@ -187,7 +189,7 @@ def render_svg(stats, mobile=False):
     scope_label = "Public repositories only"
     pieces = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{card_width}" height="{height}" viewBox="0 0 {card_width} {height}" role="img" aria-labelledby="title description">
   <title id="title">Repository languages · {USERNAME}</title>
-  <desc id="description">Language byte percentages across {stats['repository_count']} owned repositories. Scope: {escape(scope_label)}. Includes accessible forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved {escape(stats['retrieved_at_utc'])}. Percentages use largest-remainder rounding.</desc>
+  <desc id="description">Language byte percentages across {stats['repository_count']} owned repositories. Scope: {escape(scope_label)}. Includes accessible forks and the profile repository. HTML and Jupyter Notebook are excluded from both the displayed languages and the percentage denominator. Remaining languages are shown in descending byte order. Code composition, not proficiency. Retrieved {escape(stats['retrieved_at_utc'])}. Percentages use largest-remainder rounding.</desc>
   <style>
     svg {{ --bg: #f6f8fc; --panel: #ffffff; --text: #17253d; --muted: #53627a; --border: #dce3ef; --track: #e7ecf5; }}
     @media (prefers-color-scheme: dark) {{
@@ -234,13 +236,13 @@ def render_svg(stats, mobile=False):
             f'<text x="{x + (bar_width if mobile else 364)}" y="{y}" text-anchor="end" class="percent">{language["percentage"]:.2f}%</text>'
         )
     if not languages:
-        pieces.append(f'<text x="{margin}" y="{first_label_y}" class="label muted">No language bytes reported by GitHub.</text>')
+        pieces.append(f'<text x="{margin}" y="{first_label_y}" class="label muted">No included language bytes.</text>')
     percentage_total = '100.00' if languages else '0.00'
     if mobile:
         footer = height - 164
         footer_lines = [
             'Includes forks + profile repository.',
-            'No language exclusions or deduplication.',
+            'Excludes HTML + Jupyter Notebook.',
             'GitHub code bytes, not proficiency.',
             'Duplicated fork code counts.',
             f'Retrieved {date} UTC',
@@ -252,7 +254,7 @@ def render_svg(stats, mobile=False):
     else:
         footer = height - 97
         pieces.append(f'''<path d="M40 {footer - 22} H800" stroke="var(--border)"/>
-  <text x="40" y="{footer + 3}" font-size="16" class="muted">Includes all forks + profile repository; no language exclusions.</text>
+  <text x="40" y="{footer + 3}" font-size="16" class="muted">Includes forks + profile; excludes HTML and Jupyter Notebook.</text>
   <text x="40" y="{footer + 29}" font-size="16" class="muted">GitHub language bytes, not proficiency. Duplicated fork code counts.</text>
   <text x="40" y="{footer + 55}" font-size="16" class="muted">Retrieved {date} UTC · Percentages total {percentage_total}%</text>''')
     pieces.append('</svg>\n')
@@ -263,6 +265,10 @@ def validate_outputs(stats, *svgs):
     languages = stats["languages"]
     if stats["scope"].get("visibility") != "public":
         raise StatsError("Only public-repository statistics may be published.")
+    if stats["scope"].get("language_exclusions") != sorted(EXCLUDED_LANGUAGES):
+        raise StatsError("Language exclusions do not match the configured filter.")
+    if any(row["name"] in EXCLUDED_LANGUAGES for row in languages):
+        raise StatsError("Excluded languages must not appear in the statistics.")
     if sum(row["bytes"] for row in languages) != stats["total_bytes"]:
         raise StatsError("Language bytes do not match the total.")
     if "repositories" in stats or stats["scope"].get("repository_details_published") is not False:

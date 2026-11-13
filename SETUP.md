@@ -38,12 +38,14 @@ below 600px and keeps an intrinsic width of 420px instead of stretching.
   archived repositories, and this profile. Private, organization-owned, and
   contributed repositories are excluded. New public repositories are discovered
   automatically on each refresh using GitHub's public-user repository endpoint.
-- Every language reported by GitHub is displayed. Notebook files remain
-  **Jupyter Notebook**; their bytes are not reassigned to Python.
-- The percentages sum **language bytes**, not repository counts, commits,
-  proficiency, or time spent. Large notebooks and repeated fork code can
-  dominate the result. A tiny language can round to `0.00%` without being
-  excluded.
+- **HTML and Jupyter Notebook are excluded** from the chart and its percentage
+  denominator. Their bytes are not reassigned to another language. The remaining
+  languages are normalized to total **100.00%**, unless none remain.
+- The percentages sum **included language bytes**, not repository counts,
+  commits, proficiency, or time spent. Repeated fork code can influence the
+  result. A tiny included language can round to `0.00%` without being excluded.
+  `repositories_with_language_data` counts repositories with at least one
+  nonzero included language.
 - `assets/languages.json` publishes **aggregate language bytes and percentages**,
   aggregate counts, scope, and retrieval time. Repository names, URLs, visibility
   breakdowns, and per-repository language totals are never published. Progress

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="1092" viewBox="0 0 420 1092" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="1008" viewBox="0 0 420 1008" role="img" aria-labelledby="title description">
   <title id="title">Repository languages · sanyamjain0315</title>
-  <desc id="description">Language byte percentages across 20 owned repositories. Scope: Public repositories only. Includes accessible forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved 2026-11-13T07:17:21Z. Percentages use largest-remainder rounding.</desc>
+  <desc id="description">Language byte percentages across 20 owned repositories. Scope: Public repositories only. Includes accessible forks and the profile repository. HTML and Jupyter Notebook are excluded from both the displayed languages and the percentage denominator. Remaining languages are shown in descending byte order. Code composition, not proficiency. Retrieved 2026-11-13T07:20:25Z. Percentages use largest-remainder rounding.</desc>
   <style>
     svg { --bg: #f6f8fc; --panel: #ffffff; --text: #17253d; --muted: #53627a; --border: #dce3ef; --track: #e7ecf5; }
     @media (prefers-color-scheme: dark) {
@@ -11,54 +11,50 @@
     .label { font-size: 18px; }
     .percent { font-size: 18px; font-weight: 650; font-variant-numeric: tabular-nums; }
   </style>
-  <rect x="1" y="1" width="418" height="1090" rx="22" fill="var(--bg)" stroke="var(--border)"/>
-  <rect x="12" y="12" width="396" height="1068" rx="16" fill="var(--panel)"/>
+  <rect x="1" y="1" width="418" height="1006" rx="22" fill="var(--bg)" stroke="var(--border)"/>
+  <rect x="12" y="12" width="396" height="984" rx="16" fill="var(--panel)"/>
 <text x="24" y="54" font-size="20" font-weight="750">Repository languages</text>
   <text x="24" y="84" font-size="18" class="muted">@sanyamjain0315</text>
   <text x="24" y="112" font-size="18" class="muted">Public repositories only</text>
-  <text x="24" y="144" font-size="18" class="muted">20 repositories · 16 languages</text>
-  <text x="24" y="172" font-size="18" class="muted">21,030,150 code bytes</text>
+  <text x="24" y="144" font-size="18" class="muted">20 repositories · 14 languages</text>
+  <text x="24" y="172" font-size="18" class="muted">895,038 code bytes</text>
 <defs><clipPath id="bar"><rect x="24" y="196" width="372" height="22" rx="11"/></clipPath></defs>
   <rect x="24" y="196" width="372" height="22" rx="11" fill="var(--track)"/>
   <g clip-path="url(#bar)">
-<rect x="24.000000" y="196" width="276.359995" height="22" fill="#a77a36"><title>Jupyter Notebook: 74.29% (15,623,366 bytes)</title></rect>
-<rect x="300.359995" y="196" width="79.807777" height="22" fill="#d45e78"><title>HTML: 21.45% (4,511,746 bytes)</title></rect>
-<rect x="380.167772" y="196" width="5.179236" height="22" fill="#269e91"><title>Python: 1.39% (292,796 bytes)</title></rect>
-<rect x="385.347008" y="196" width="4.322103" height="22" fill="#3572a5"><title>Cuda: 1.16% (244,340 bytes)</title></rect>
-<rect x="389.669111" y="196" width="2.901049" height="22" fill="#c75252"><title>Java: 0.78% (164,004 bytes)</title></rect>
-<rect x="392.570160" y="196" width="1.801136" height="22" fill="#a77a36"><title>C: 0.49% (101,823 bytes)</title></rect>
-<rect x="394.371295" y="196" width="0.730551" height="22" fill="#dc7946"><title>TypeScript: 0.20% (41,300 bytes)</title></rect>
-<rect x="395.101847" y="196" width="0.398478" height="22" fill="#5585d4"><title>JavaScript: 0.11% (22,527 bytes)</title></rect>
-<rect x="395.500324" y="196" width="0.192720" height="22" fill="#e5a228"><title>CSS: 0.05% (10,895 bytes)</title></rect>
-<rect x="395.693045" y="196" width="0.162296" height="22" fill="#c75252"><title>C++: 0.04% (9,175 bytes)</title></rect>
-<rect x="395.855340" y="196" width="0.046840" height="22" fill="#5585d4"><title>Mermaid: 0.01% (2,648 bytes)</title></rect>
-<rect x="395.902180" y="196" width="0.041887" height="22" fill="#b260b0"><title>PLpgSQL: 0.01% (2,368 bytes)</title></rect>
-<rect x="395.944068" y="196" width="0.028196" height="22" fill="#e5a228"><title>Makefile: 0.01% (1,594 bytes)</title></rect>
-<rect x="395.972264" y="196" width="0.013797" height="22" fill="#498fa4"><title>Shell: 0.01% (780 bytes)</title></rect>
-<rect x="395.986061" y="196" width="0.013214" height="22" fill="#269e91"><title>Dockerfile: 0.00% (747 bytes)</title></rect>
-<rect x="395.999275" y="196" width="0.000725" height="22" fill="#e5a228"><title>Procfile: 0.00% (41 bytes)</title></rect>
+<rect x="24.000000" y="196" width="121.693282" height="22" fill="#269e91"><title>Python: 32.71% (292,796 bytes)</title></rect>
+<rect x="145.693282" y="196" width="101.553766" height="22" fill="#3572a5"><title>Cuda: 27.30% (244,340 bytes)</title></rect>
+<rect x="247.247049" y="196" width="68.164132" height="22" fill="#c75252"><title>Java: 18.32% (164,004 bytes)</title></rect>
+<rect x="315.411180" y="196" width="42.320165" height="22" fill="#a77a36"><title>C: 11.38% (101,823 bytes)</title></rect>
+<rect x="357.731345" y="196" width="17.165305" height="22" fill="#dc7946"><title>TypeScript: 4.61% (41,300 bytes)</title></rect>
+<rect x="374.896650" y="196" width="9.362780" height="22" fill="#5585d4"><title>JavaScript: 2.52% (22,527 bytes)</title></rect>
+<rect x="384.259430" y="196" width="4.528232" height="22" fill="#e5a228"><title>CSS: 1.22% (10,895 bytes)</title></rect>
+<rect x="388.787663" y="196" width="3.813358" height="22" fill="#c75252"><title>C++: 1.03% (9,175 bytes)</title></rect>
+<rect x="392.601020" y="196" width="1.100575" height="22" fill="#5585d4"><title>Mermaid: 0.30% (2,648 bytes)</title></rect>
+<rect x="393.701595" y="196" width="0.984200" height="22" fill="#b260b0"><title>PLpgSQL: 0.26% (2,368 bytes)</title></rect>
+<rect x="394.685794" y="196" width="0.662506" height="22" fill="#e5a228"><title>Makefile: 0.18% (1,594 bytes)</title></rect>
+<rect x="395.348300" y="196" width="0.324187" height="22" fill="#498fa4"><title>Shell: 0.09% (780 bytes)</title></rect>
+<rect x="395.672488" y="196" width="0.310472" height="22" fill="#269e91"><title>Dockerfile: 0.08% (747 bytes)</title></rect>
+<rect x="395.982959" y="196" width="0.017041" height="22" fill="#e5a228"><title>Procfile: 0.00% (41 bytes)</title></rect>
 </g>
-<circle cx="30" cy="252" r="6" fill="#a77a36"/><text x="47" y="258" class="label">Jupyter Notebook</text><text x="396" y="258" text-anchor="end" class="percent">74.29%</text>
-<circle cx="30" cy="294" r="6" fill="#d45e78"/><text x="47" y="300" class="label">HTML</text><text x="396" y="300" text-anchor="end" class="percent">21.45%</text>
-<circle cx="30" cy="336" r="6" fill="#269e91"/><text x="47" y="342" class="label">Python</text><text x="396" y="342" text-anchor="end" class="percent">1.39%</text>
-<circle cx="30" cy="378" r="6" fill="#3572a5"/><text x="47" y="384" class="label">Cuda</text><text x="396" y="384" text-anchor="end" class="percent">1.16%</text>
-<circle cx="30" cy="420" r="6" fill="#c75252"/><text x="47" y="426" class="label">Java</text><text x="396" y="426" text-anchor="end" class="percent">0.78%</text>
-<circle cx="30" cy="462" r="6" fill="#a77a36"/><text x="47" y="468" class="label">C</text><text x="396" y="468" text-anchor="end" class="percent">0.49%</text>
-<circle cx="30" cy="504" r="6" fill="#dc7946"/><text x="47" y="510" class="label">TypeScript</text><text x="396" y="510" text-anchor="end" class="percent">0.20%</text>
-<circle cx="30" cy="546" r="6" fill="#5585d4"/><text x="47" y="552" class="label">JavaScript</text><text x="396" y="552" text-anchor="end" class="percent">0.11%</text>
-<circle cx="30" cy="588" r="6" fill="#e5a228"/><text x="47" y="594" class="label">CSS</text><text x="396" y="594" text-anchor="end" class="percent">0.05%</text>
-<circle cx="30" cy="630" r="6" fill="#c75252"/><text x="47" y="636" class="label">C++</text><text x="396" y="636" text-anchor="end" class="percent">0.04%</text>
-<circle cx="30" cy="672" r="6" fill="#5585d4"/><text x="47" y="678" class="label">Mermaid</text><text x="396" y="678" text-anchor="end" class="percent">0.01%</text>
-<circle cx="30" cy="714" r="6" fill="#b260b0"/><text x="47" y="720" class="label">PLpgSQL</text><text x="396" y="720" text-anchor="end" class="percent">0.01%</text>
-<circle cx="30" cy="756" r="6" fill="#e5a228"/><text x="47" y="762" class="label">Makefile</text><text x="396" y="762" text-anchor="end" class="percent">0.01%</text>
-<circle cx="30" cy="798" r="6" fill="#498fa4"/><text x="47" y="804" class="label">Shell</text><text x="396" y="804" text-anchor="end" class="percent">0.01%</text>
-<circle cx="30" cy="840" r="6" fill="#269e91"/><text x="47" y="846" class="label">Dockerfile</text><text x="396" y="846" text-anchor="end" class="percent">0.00%</text>
-<circle cx="30" cy="882" r="6" fill="#e5a228"/><text x="47" y="888" class="label">Procfile</text><text x="396" y="888" text-anchor="end" class="percent">0.00%</text>
-<path d="M24 906 H396" stroke="var(--border)"/>
-<text x="24" y="931" font-size="18" class="muted">Includes forks + profile repository.</text>
-<text x="24" y="957" font-size="18" class="muted">No language exclusions or deduplication.</text>
-<text x="24" y="983" font-size="18" class="muted">GitHub code bytes, not proficiency.</text>
-<text x="24" y="1009" font-size="18" class="muted">Duplicated fork code counts.</text>
-<text x="24" y="1035" font-size="18" class="muted">Retrieved 2026-11-13 UTC</text>
-<text x="24" y="1061" font-size="18" class="muted">Rounded percentages total 100.00%.</text>
+<circle cx="30" cy="252" r="6" fill="#269e91"/><text x="47" y="258" class="label">Python</text><text x="396" y="258" text-anchor="end" class="percent">32.71%</text>
+<circle cx="30" cy="294" r="6" fill="#3572a5"/><text x="47" y="300" class="label">Cuda</text><text x="396" y="300" text-anchor="end" class="percent">27.30%</text>
+<circle cx="30" cy="336" r="6" fill="#c75252"/><text x="47" y="342" class="label">Java</text><text x="396" y="342" text-anchor="end" class="percent">18.32%</text>
+<circle cx="30" cy="378" r="6" fill="#a77a36"/><text x="47" y="384" class="label">C</text><text x="396" y="384" text-anchor="end" class="percent">11.38%</text>
+<circle cx="30" cy="420" r="6" fill="#dc7946"/><text x="47" y="426" class="label">TypeScript</text><text x="396" y="426" text-anchor="end" class="percent">4.61%</text>
+<circle cx="30" cy="462" r="6" fill="#5585d4"/><text x="47" y="468" class="label">JavaScript</text><text x="396" y="468" text-anchor="end" class="percent">2.52%</text>
+<circle cx="30" cy="504" r="6" fill="#e5a228"/><text x="47" y="510" class="label">CSS</text><text x="396" y="510" text-anchor="end" class="percent">1.22%</text>
+<circle cx="30" cy="546" r="6" fill="#c75252"/><text x="47" y="552" class="label">C++</text><text x="396" y="552" text-anchor="end" class="percent">1.03%</text>
+<circle cx="30" cy="588" r="6" fill="#5585d4"/><text x="47" y="594" class="label">Mermaid</text><text x="396" y="594" text-anchor="end" class="percent">0.30%</text>
+<circle cx="30" cy="630" r="6" fill="#b260b0"/><text x="47" y="636" class="label">PLpgSQL</text><text x="396" y="636" text-anchor="end" class="percent">0.26%</text>
+<circle cx="30" cy="672" r="6" fill="#e5a228"/><text x="47" y="678" class="label">Makefile</text><text x="396" y="678" text-anchor="end" class="percent">0.18%</text>
+<circle cx="30" cy="714" r="6" fill="#498fa4"/><text x="47" y="720" class="label">Shell</text><text x="396" y="720" text-anchor="end" class="percent">0.09%</text>
+<circle cx="30" cy="756" r="6" fill="#269e91"/><text x="47" y="762" class="label">Dockerfile</text><text x="396" y="762" text-anchor="end" class="percent">0.08%</text>
+<circle cx="30" cy="798" r="6" fill="#e5a228"/><text x="47" y="804" class="label">Procfile</text><text x="396" y="804" text-anchor="end" class="percent">0.00%</text>
+<path d="M24 822 H396" stroke="var(--border)"/>
+<text x="24" y="847" font-size="18" class="muted">Includes forks + profile repository.</text>
+<text x="24" y="873" font-size="18" class="muted">Excludes HTML + Jupyter Notebook.</text>
+<text x="24" y="899" font-size="18" class="muted">GitHub code bytes, not proficiency.</text>
+<text x="24" y="925" font-size="18" class="muted">Duplicated fork code counts.</text>
+<text x="24" y="951" font-size="18" class="muted">Retrieved 2026-11-13 UTC</text>
+<text x="24" y="977" font-size="18" class="muted">Rounded percentages total 100.00%.</text>
 </svg>
