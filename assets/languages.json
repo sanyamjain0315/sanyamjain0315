@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "username": "sanyamjain0315",
+  "retrieved_at_utc": "2026-11-13T05:46:57Z",
+  "repository_count": 26,
+  "fork_count": 4,
+  "repositories_with_language_data": 25,
+  "scope": {
+    "visibility": "public",
+    "ownership": "owned by sanyamjain0315 (not organization or contributed repositories)",
+    "includes_forks": true,
+    "includes_profile_repository": true,
+    "language_exclusions": [],
+    "measure": "Sum of GitHub REST /repos/{owner}/{repo}/languages byte counts",
+    "deduplicated": false,
+    "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply."
+  },
+  "total_bytes": 23881536,
+  "language_count": 16,
+  "percentage_rounding": "Largest remainder, 0.01 percentage points; nonempty totals sum to 100.00%.",
+  "repositories": [
+    {
+      "name": "sanyamjain0315/AI_music_generator",
+      "fork": false,
+      "language_bytes": 12535
+    },
+    {
+      "name": "sanyamjain0315/book-recommender",
+      "fork": false,
+      "language_bytes": 64677
+    },
+    {
+      "name": "sanyamjain0315/Breakout_algorithm_trading_bot",
+      "fork": false,
+      "language_bytes": 2482
+    },
+    {
+      "name": "sanyamjain0315/clone-impala",
+      "fork": false,
+      "language_bytes": 197622
+    },
+    {
+      "name": "sanyamjain0315/cuda-wildfirespread-simulation",
+      "fork": false,
+      "language_bytes": 499428
+    },
+    {
+      "name": "sanyamjain0315/facial-attendance-system",
+      "fork": false,
+      "language_bytes": 9140
+    },
+    {
+      "name": "sanyamjain0315/fashion_mnist",
+      "fork": false,
+      "language_bytes": 170091
+    },
+    {
+      "name": "sanyamjain0315/flask-blogsite",
+      "fork": false,
+      "language_bytes": 14410
+    },
+    {
+      "name": "sanyamjain0315/gca",
+      "fork": true,
+      "language_bytes": 217250
+    },
+    {
+      "name": "sanyamjain0315/generated-image-detection",
+      "fork": false,
+      "language_bytes": 15210178
+    },
+    {
+      "name": "sanyamjain0315/Legends-Monsters-and-Heroes",
+      "fork": false,
+      "language_bytes": 116775
+    },
+    {
+      "name": "sanyamjain0315/MedAI",
+      "fork": false,
+      "language_bytes": 0
+    },
+    {
+      "name": "sanyamjain0315/monsters-and-heros",
+      "fork": false,
+      "language_bytes": 50009
+    },
+    {
+      "name": "sanyamjain0315/Movie_review_analysis",
+      "fork": false,
+      "language_bytes": 39986
+    },
+    {
+      "name": "sanyamjain0315/Mumbai-House-price-prediction",
+      "fork": false,
+      "language_bytes": 72663
+    },
+    {
+      "name": "sanyamjain0315/NLP_20_newspapers",
+      "fork": false,
+      "language_bytes": 2131145
+    },
+    {
+      "name": "sanyamjain0315/NoDust",
+      "fork": false,
+      "language_bytes": 54556
+    },
+    {
+      "name": "sanyamjain0315/pyedifice_demo",
+      "fork": false,
+      "language_bytes": 2038
+    },
+    {
+      "name": "sanyamjain0315/rinex5",
+      "fork": true,
+      "language_bytes": 423
+    },
+    {
+      "name": "sanyamjain0315/sanyamjain0315",
+      "fork": false,
+      "language_bytes": 4490404
+    },
+    {
+      "name": "sanyamjain0315/Sentiment-analyser",
+      "fork": false,
+      "language_bytes": 1650
+    },
+    {
+      "name": "sanyamjain0315/Supabase_LlaMa",
+      "fork": true,
+      "language_bytes": 10682
+    },
+    {
+      "name": "sanyamjain0315/TCET-Web-Dev",
+      "fork": true,
+      "language_bytes": 68875
+    },
+    {
+      "name": "sanyamjain0315/Text-Emotions",
+      "fork": false,
+      "language_bytes": 16309
+    },
+    {
+      "name": "sanyamjain0315/topic-modelling-sample",
+      "fork": false,
+      "language_bytes": 421192
+    },
+    {
+      "name": "sanyamjain0315/yt-gatekeeper",
+      "fork": false,
+      "language_bytes": 7016
+    }
+  ],
+  "languages": [
+    {
+      "name": "Jupyter Notebook",
+      "bytes": 18472236,
+      "percentage": 77.35
+    },
+    {
+      "name": "HTML",
+      "bytes": 4511746,
+      "percentage": 18.89
+    },
+    {
+      "name": "Python",
+      "bytes": 294962,
+      "percentage": 1.24
+    },
+    {
+      "name": "Cuda",
+      "bytes": 244340,
+      "percentage": 1.02
+    },
+    {
+      "name": "Java",
+      "bytes": 164004,
+      "percentage": 0.69
+    },
+    {
+      "name": "C",
+      "bytes": 101823,
+      "percentage": 0.43
+    },
+    {
+      "name": "TypeScript",
+      "bytes": 41300,
+      "percentage": 0.17
+    },
+    {
+      "name": "JavaScript",
+      "bytes": 22527,
+      "percentage": 0.09
+    },
+    {
+      "name": "CSS",
+      "bytes": 10895,
+      "percentage": 0.05
+    },
+    {
+      "name": "C++",
+      "bytes": 9175,
+      "percentage": 0.04
+    },
+    {
+      "name": "Mermaid",
+      "bytes": 2648,
+      "percentage": 0.01
+    },
+    {
+      "name": "PLpgSQL",
+      "bytes": 2368,
+      "percentage": 0.01
+    },
+    {
+      "name": "Makefile",
+      "bytes": 1594,
+      "percentage": 0.01
+    },
+    {
+      "name": "Shell",
+      "bytes": 1048,
+      "percentage": 0.0
+    },
+    {
+      "name": "Dockerfile",
+      "bytes": 747,
+      "percentage": 0.0
+    },
+    {
+      "name": "Procfile",
+      "bytes": 123,
+      "percentage": 0.0
+    }
+  ]
+}

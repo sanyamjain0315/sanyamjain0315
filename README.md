@@ -1,20 +1,39 @@
+<a href="https://sanyamjain0315.github.io/sanyamjain0315/windows-xp-profile.html">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/windows7-still.png">
+    <img src="assets/windows7.gif" width="100%" alt="Sanyam Jain’s animated Windows desktop. Click to open the interactive About Me page.">
+  </picture>
+</a>
+
+<p align="center"><sub>Click the desktop to explore.</sub></p>
+
+<a name="summary"></a>
+
+## <img src="assets/heading-summary.svg" width="420" alt="Summary">
+
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/header-light.svg">
-  <img src="assets/header-light.svg" width="100%" alt="Sanyam Jain — Backend systems and local AI. The original Ship on a Stormy Sea by Ivan Aivazovsky, 1858, displayed in full beneath my name.">
+  <source media="(max-width: 600px)" srcset="assets/summary-mobile.svg">
+  <img src="assets/summary.svg" alt="I’m Sanyam, an M.S. Computer Science candidate at Boston University. I build event-driven backends and experiment with local AI agents. I’m happiest working out how a system behaves as events arrive, queues fill, and models make decisions. I believe AI should be open-source, private, and under its users’ control. That keeps me tinkering with local models—and learning something new about backend engineering every day.">
 </picture>
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/sanyamsuniljain/">LinkedIn</a> &nbsp; · &nbsp;
-  <a href="mailto:sanyamjain0315@gmail.com">Email</a> &nbsp; · &nbsp;
-  <a href="#selected-work">Selected work</a>
-</p>
+<details>
+<summary>Read the plain-text summary</summary>
 
 I’m **Sanyam**, an M.S. Computer Science candidate at **Boston University**. I build event-driven backends and experiment with local AI agents. I’m happiest working out how a system behaves as events arrive, queues fill, and models make decisions.
 
 I believe AI should be **open-source, private, and under its users’ control**. That keeps me tinkering with local models—and learning something new about backend engineering every day.
 
-## Selected work
+</details>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/sanyamsuniljain/">LinkedIn</a> &nbsp; · &nbsp;
+  <a href="mailto:sanyamjain0315@gmail.com">Email</a> &nbsp; · &nbsp;
+  <a href="#showcase-projects">Showcase projects</a>
+</p>
+
+<a name="showcase-projects"></a>
+
+## <img src="assets/heading-showcase.svg" width="440" alt="Showcase projects">
 
 ### [NoDust](https://github.com/sanyamjain0315/NoDust)
 
@@ -30,6 +49,9 @@ Monte Carlo wildfire simulation on the GPU. I wrote the CPU baseline and impleme
 **C++ · CUDA · Performance profiling**  
 [Benchmark report](https://github.com/sanyamjain0315/cuda-wildfirespread-simulation/blob/main/writeup/CUDA%20project%20report.pdf)
 
+<details>
+<summary>Also shipped: YT Gatekeeper</summary>
+
 ### [YT Gatekeeper](https://github.com/sanyamjain0315/yt-gatekeeper)
 
 A Chrome extension I published to make YouTube use more intentional: daily watch-time tracking and a short pause before continuing.
@@ -37,24 +59,48 @@ A Chrome extension I published to make YouTube use more intentional: daily watch
 **JavaScript · Chrome Extensions**  
 [Chrome Web Store](https://chromewebstore.google.com/detail/yt-gatekeeper/paggklmpeoleddkmffideelfdcgmcbjm)
 
-<img src="assets/current.svg" width="100%" height="36" alt="">
+</details>
 
-### Research &amp; ongoing work
+<a name="languages"></a>
 
-- **Local AI for phone navigation · BU Spark!** — Building an agent for a healthcare administration client, with a simulator to test when local models dial, wait, or hand off.
-- **Computer vision &amp; ASL · Talks.ai** — Training continuous sign-language recognition models and benchmarking video architectures. I’m also exploring graph neural networks for sign recognition.
-- **Go stream processing · BU** — Evaluating cache bypassing, asynchronous prefetching, and cross-batch caching across read-heavy and write-heavy workloads.
+## <img src="assets/heading-languages.svg" width="480" alt="Languages across my GitHub">
 
-### Tools I work with
+<a href="assets/languages.json">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/languages-mobile.svg">
+    <img src="assets/languages.svg" alt="Language percentages across all my public GitHub repositories, including forks. Open the underlying language totals and percentages.">
+  </picture>
+</a>
+
+<sub>All public repositories, including forks and this profile. Percentages are based on GitHub-reported language bytes—not proficiency or time spent. Every detected language is included; private repositories are not counted. Refreshed weekly via GitHub Actions.</sub>
+
+<a name="skills-and-tools"></a>
+
+## <img src="assets/heading-skills.svg" width="460" alt="Skills and tools I use">
 
 **Backend &amp; data** &nbsp; Python, Go, SQL, FastAPI, Kafka, Spark, PostgreSQL  
 **AI &amp; systems** &nbsp; PyTorch, computer vision, llama.cpp, RAG, C++, CUDA  
 **Infrastructure** &nbsp; Docker, AWS, Google Cloud, GitHub Actions
 
-### Away from the terminal
+<a name="ongoing-projects"></a>
 
-I sketch regularly, get absorbed in story-driven games, and love old paintings. Aivazovsky’s *Ship on a Stormy Sea* is my favorite—the original painting at the top of this page.
+## <img src="assets/heading-ongoing.svg" width="440" alt="Ongoing projects">
 
-<img src="assets/current.svg" width="100%" height="36" alt="">
+- **BU Spark!** — Applied AI work for a healthcare administration client. The local AI phone-navigation project below is part of this engagement.
+- **Local AI phone navigation** — Building an agent and a simulator to test when local models dial, wait, or hand off.
+- **Computer vision &amp; ASL · Talks.ai** — Training continuous sign-language recognition models and benchmarking video architectures. I’m also exploring graph neural networks for sign recognition.
+- **Go stream processing · BU** — Evaluating cache bypassing, asynchronous prefetching, and cross-batch caching across read-heavy and write-heavy workloads.
 
-<p align="center"><sub>Ivan Aivazovsky · <i>Ship on a Stormy Sea</i> · 1858</sub></p>
+<a name="planned-projects"></a>
+
+## <img src="assets/heading-planned.svg" width="440" alt="Planned projects">
+
+No planned projects listed yet.
+
+<!-- Add confirmed project ideas here; ongoing work is kept in the section above. -->
+
+<a name="personal-interests"></a>
+
+## <img src="assets/heading-interests.svg" width="440" alt="Personal interests">
+
+I sketch regularly, get absorbed in story-driven games, and love old paintings. Aivazovsky’s *Ship on a Stormy Sea* is my favorite. I’m also into F1 and experimenting with local AI.
