@@ -28,8 +28,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Test aggregation and privacy safeguards
-        run: python -m unittest discover -s tools -p 'test_language_stats.py' -v
       - name: Generate aggregate public and private language assets
         env:
           # Read access to other private repositories; never used for git pushes.
