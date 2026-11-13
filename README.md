@@ -68,11 +68,11 @@ A Chrome extension I published to make YouTube use more intentional: daily watch
 <a href="assets/languages.json">
   <picture>
     <source media="(max-width: 600px)" srcset="assets/languages-mobile.svg">
-    <img src="assets/languages.svg" alt="Language percentages across all my public GitHub repositories, including forks. Open the underlying language totals and percentages.">
+    <img src="assets/languages.svg" alt="Aggregated language percentages for the repositories in my latest GitHub snapshot. Open the combined language totals and percentages.">
   </picture>
 </a>
 
-<sub>All public repositories, including forks and this profile. Percentages are based on GitHub-reported language bytes—not proficiency or time spent. Every detected language is included; private repositories are not counted. Refreshed weekly via GitHub Actions.</sub>
+<sub>Configured to include public and token-accessible private repositories owned by me, including forks and this profile. The card labels the scope of its last successful refresh. Percentages measure GitHub-reported language bytes—not proficiency or time spent. Only aggregated statistics are published; no repository inventory. Refreshed weekly via GitHub Actions.</sub>
 
 <a name="skills-and-tools"></a>
 

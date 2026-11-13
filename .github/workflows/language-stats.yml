@@ -1,4 +1,4 @@
-name: Refresh public repository languages
+name: Refresh repository languages
 
 on:
   workflow_dispatch:
@@ -28,11 +28,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Generate all-public-repository language assets
+      - name: Test aggregation and privacy safeguards
+        run: python -m unittest discover -s tools -p 'test_language_stats.py' -v
+      - name: Generate aggregate public and private language assets
         env:
-          # The automatic token raises API limits; no PAT or external service.
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python tools/build_language_stats.py
+          # Read access to other private repositories; never used for git pushes.
+          LANGUAGE_STATS_TOKEN: ${{ secrets.LANGUAGE_STATS_TOKEN }}
+        run: python tools/build_language_stats.py --include-private
       - name: Commit only the generated assets
         run: |
           git config user.name 'github-actions[bot]'
@@ -42,5 +44,5 @@ jobs:
             echo 'No language asset changes.'
             exit 0
           fi
-          git commit -m 'chore: refresh public repository language stats' --only -- assets/languages.svg assets/languages-mobile.svg assets/languages.json
+          git commit -m 'chore: refresh aggregate repository language stats' --only -- assets/languages.svg assets/languages-mobile.svg assets/languages.json
           git push origin HEAD:main

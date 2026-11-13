@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Build a GitHub language-byte card with Python's standard library.
 
-Scope: ALL public repositories owned by the user, INCLUDING forks and the
-username/username profile repository. Sum the bytes returned by GitHub's
-languages endpoint without deduplication or language exclusions. This measures
-repository code composition, NOT proficiency. GitHub/Linguist decides which
-files count; private repositories and upstream-only fork content are not queried.
+Default: public owned repositories. With --include-private, discover public and
+private owned repositories accessible to LANGUAGE_STATS_TOKEN. Forks and the
+profile repository count; organization/contributed repositories do not.
+Publish aggregate language bytes only, never repository names or inventories.
+This measures code composition, NOT proficiency; GitHub Linguist rules apply.
 
-GITHUB_TOKEN is optional for public data, but recommended for API rate limits.
-Every API call and output validation finishes before any asset is overwritten.
+GITHUB_TOKEN is optional for public mode. Private mode requires the separate
+LANGUAGE_STATS_TOKEN and fails closed rather than silently publishing public-only
+results. Every API call and validation finishes before assets are overwritten.
 """
 
+import argparse
 import datetime as dt
 import hashlib
 import json
@@ -41,6 +43,7 @@ SCOPE = {
     "measure": "Sum of GitHub REST /repos/{owner}/{repo}/languages byte counts",
     "deduplicated": False,
     "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply.",
+    "repository_details_published": False,
 }
 
 
@@ -48,13 +51,14 @@ class StatsError(Exception):
     """An actionable API or data-validation failure."""
 
 
-def api_get(path):
+def api_get(path, *, token=None):
     headers = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
         "User-Agent": f"{USERNAME}-language-stats",
     }
-    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    if token is None:
+        token = os.environ.get("GITHUB_TOKEN", "").strip()
     if token:
         headers["Authorization"] = f"Bearer {token}"
     request = urllib.request.Request(f"{API_ROOT}{path}", headers=headers)
@@ -67,36 +71,40 @@ def api_get(path):
         reset_note = ""
         if reset and reset.isdigit():
             reset_note = f"; reset {dt.datetime.fromtimestamp(int(reset), dt.UTC).isoformat()}"
-        try:
-            detail = json.loads(exc.read()).get("message", exc.reason)
-        except (ValueError, AttributeError):
-            detail = exc.reason
+        # Public Actions logs must not reveal a private repository's URL or
+        # GitHub's response body. Exception details can contain both.
         raise StatsError(
-            f"GitHub HTTP {exc.code} for {path}: {detail} "
+            f"GitHub HTTP {exc.code} while reading repository statistics "
             f"(rate-limit remaining: {remaining}{reset_note}). "
-            "Check GITHUB_TOKEN and API limits; no assets have been written."
-        ) from exc
-    except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
-        raise StatsError(f"GitHub request failed for {path}: {exc}") from exc
+            "Check token expiry, repository selection, Contents read permission, "
+            "and API limits; no assets have been written."
+        ) from None
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        raise StatsError("GitHub request or JSON decoding failed; no assets have been written.") from None
 
 
-def public_repositories():
+def owned_repositories(include_private=False, token=None):
     repositories = []
     seen = set()
     page = 1
     while True:
-        query = urllib.parse.urlencode({
-            "type": "owner", "per_page": 100, "page": page,
-            "sort": "full_name", "direction": "asc",
-        })
-        batch = api_get(f"/users/{USERNAME}/repos?{query}")
+        options = {"per_page": 100, "page": page, "sort": "full_name", "direction": "asc"}
+        if include_private:
+            options.update(visibility="all", affiliation="owner")
+            endpoint = "/user/repos"
+        else:
+            options["type"] = "owner"
+            endpoint = f"/users/{USERNAME}/repos"
+        query = urllib.parse.urlencode(options)
+        batch = api_get(f"{endpoint}?{query}", token=token)
         if not isinstance(batch, list):
             raise StatsError("GitHub repository response was not a list.")
         for repo in batch:
             if (
                 not isinstance(repo, dict)
                 or not isinstance(repo.get("full_name"), str)
-                or repo.get("private") is not False
+                or not isinstance(repo.get("private"), bool)
+                or (not include_private and repo["private"])
                 or repo.get("owner", {}).get("login", "").lower() != USERNAME.lower()
                 or not isinstance(repo.get("fork"), bool)
             ):
@@ -105,7 +113,7 @@ def public_repositories():
                 raise StatsError("Repository pagination returned a duplicate; rerun for a consistent snapshot.")
             seen.add(repo["full_name"])
             repositories.append(repo)
-        print(f"Repository page {page}: {len(batch)} public owned repositories", flush=True)
+        print(f"Repository page {page}: {len(batch)} accessible owned repositories", flush=True)
         if len(batch) < 100:
             return repositories
         page += 1
@@ -130,36 +138,47 @@ def language_rows(totals):
     ]
 
 
-def collect_stats():
-    repositories = public_repositories()
+def collect_stats(include_private=False):
+    token = None
+    if include_private:
+        token = os.environ.get("LANGUAGE_STATS_TOKEN", "").strip()
+        if not token:
+            raise StatsError("--include-private requires LANGUAGE_STATS_TOKEN; no assets have been written.")
+        account = api_get("/user", token=token)
+        if not isinstance(account, dict) or account.get("login", "").casefold() != USERNAME.casefold():
+            raise StatsError("LANGUAGE_STATS_TOKEN must belong to the configured profile account.")
+    repositories = owned_repositories(include_private, token)
     totals = {}
-    inventory = []
+    repositories_with_data = 0
     for index, repo in enumerate(repositories, start=1):
         name = repo["full_name"]
-        languages = api_get(f"/repos/{urllib.parse.quote(name, safe='/')}/languages")
+        languages = api_get(f"/repos/{urllib.parse.quote(name, safe='/')}/languages", token=token)
         if not isinstance(languages, dict) or any(
             not isinstance(language, str) or not language
             or type(count) is not int or count < 0
             for language, count in languages.items()
         ):
-            raise StatsError(f"Invalid language-byte response for {name}.")
+            raise StatsError("GitHub returned an invalid language-byte response; no assets have been written.")
         for language, count in languages.items():
             if count:
                 totals[language] = totals.get(language, 0) + count
-        inventory.append({"name": name, "fork": repo["fork"], "language_bytes": sum(languages.values())})
-        print(f"Languages {index}/{len(repositories)}: {name} — {len(languages)} languages", flush=True)
+        repositories_with_data += any(languages.values())
+        print(f"Languages processed: {index}/{len(repositories)}", flush=True)
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "username": USERNAME,
         "retrieved_at_utc": dt.datetime.now(dt.UTC).isoformat(timespec="seconds").replace("+00:00", "Z"),
-        "repository_count": len(inventory),
-        "fork_count": sum(repo["fork"] for repo in inventory),
-        "repositories_with_language_data": sum(repo["language_bytes"] > 0 for repo in inventory),
-        "scope": SCOPE,
+        "repository_count": len(repositories),
+        "fork_count": sum(repo["fork"] for repo in repositories),
+        "repositories_with_language_data": repositories_with_data,
+        "scope": {
+            **SCOPE,
+            "visibility": "public and private" if include_private else "public",
+            "coverage": "Token-accessible owned repositories" if include_private else "Public owned repositories",
+        },
         "total_bytes": sum(totals.values()),
         "language_count": len(totals),
         "percentage_rounding": "Largest remainder, 0.01 percentage points; nonempty totals sum to 100.00%.",
-        "repositories": inventory,
         "languages": language_rows(totals),
     }
 
@@ -181,9 +200,11 @@ def render_svg(stats, mobile=False):
     first_label_y = 258 if mobile else 210
     height = (420 if mobile else 302) + max(rows, 1) * 42
     date = stats["retrieved_at_utc"].split("T")[0]
+    private = stats["scope"]["visibility"] == "public and private"
+    scope_label = "Public + private (token-accessible)" if private else "Public repositories only"
     pieces = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{card_width}" height="{height}" viewBox="0 0 {card_width} {height}" role="img" aria-labelledby="title description">
-  <title id="title">All public repository languages · {USERNAME}</title>
-  <desc id="description">Language byte percentages across all {stats['repository_count']} public owned repositories, including forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved {escape(stats['retrieved_at_utc'])}. Percentages use largest-remainder rounding.</desc>
+  <title id="title">Repository languages · {USERNAME}</title>
+  <desc id="description">Language byte percentages across {stats['repository_count']} owned repositories. Scope: {escape(scope_label)}. Includes accessible forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved {escape(stats['retrieved_at_utc'])}. Percentages use largest-remainder rounding.</desc>
   <style>
     svg {{ --bg: #f6f8fc; --panel: #ffffff; --text: #17253d; --muted: #53627a; --border: #dce3ef; --track: #e7ecf5; }}
     @media (prefers-color-scheme: dark) {{
@@ -199,12 +220,12 @@ def render_svg(stats, mobile=False):
     if mobile:
         pieces.append(f'''<text x="24" y="54" font-size="20" font-weight="750">Repository languages</text>
   <text x="24" y="84" font-size="18" class="muted">@{USERNAME}</text>
-  <text x="24" y="112" font-size="18" class="muted">All public owned repositories</text>
+  <text x="24" y="112" font-size="18" class="muted">{escape(scope_label)}</text>
   <text x="24" y="144" font-size="18" class="muted">{stats['repository_count']} repositories · {len(languages)} languages</text>
   <text x="24" y="172" font-size="18" class="muted">{stats['total_bytes']:,} code bytes</text>''')
     else:
         pieces.append(f'''<text x="40" y="62" font-size="28" font-weight="750">Repository languages</text>
-  <text x="40" y="92" font-size="18" class="muted">@{USERNAME} · All public owned repositories</text>
+  <text x="40" y="92" font-size="18" class="muted">@{USERNAME} · {escape(scope_label)}</text>
   <text x="40" y="123" font-size="17" class="muted">{stats['repository_count']} repositories · {len(languages)} languages · {stats['total_bytes']:,} code bytes</text>''')
     pieces.append(f'''<defs><clipPath id="bar"><rect x="{margin}" y="{bar_y}" width="{bar_width}" height="22" rx="11"/></clipPath></defs>
   <rect x="{margin}" y="{bar_y}" width="{bar_width}" height="22" rx="11" fill="var(--track)"/>
@@ -259,8 +280,8 @@ def validate_outputs(stats, *svgs):
     languages = stats["languages"]
     if sum(row["bytes"] for row in languages) != stats["total_bytes"]:
         raise StatsError("Language bytes do not match the total.")
-    if sum(repo["language_bytes"] for repo in stats["repositories"]) != stats["total_bytes"]:
-        raise StatsError("Repository bytes do not match the total.")
+    if "repositories" in stats or stats["scope"].get("repository_details_published") is not False:
+        raise StatsError("Public output must not contain a repository inventory.")
     if languages and sum(round(row["percentage"] * 100) for row in languages) != 10000:
         raise StatsError("Rounded percentages do not sum to 100.00%.")
     if languages != sorted(languages, key=lambda row: (-row["bytes"], row["name"].casefold(), row["name"])):
@@ -276,9 +297,12 @@ def validate_outputs(stats, *svgs):
             raise StatsError("SVG percentages do not match the data.")
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--include-private", action="store_true", help="Include owned repositories accessible to LANGUAGE_STATS_TOKEN")
+    args = parser.parse_args(argv)
     try:
-        stats = collect_stats()
+        stats = collect_stats(include_private=args.include_private)
         svg = render_svg(stats)
         mobile_svg = render_svg(stats, mobile=True)
         validate_outputs(stats, svg, mobile_svg)

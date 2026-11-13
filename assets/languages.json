@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "username": "sanyamjain0315",
   "retrieved_at_utc": "2026-11-13T05:46:57Z",
   "repository_count": 26,
@@ -13,143 +13,13 @@
     "language_exclusions": [],
     "measure": "Sum of GitHub REST /repos/{owner}/{repo}/languages byte counts",
     "deduplicated": false,
-    "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply."
+    "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply.",
+    "repository_details_published": false,
+    "coverage": "Public owned repositories"
   },
   "total_bytes": 23881536,
   "language_count": 16,
   "percentage_rounding": "Largest remainder, 0.01 percentage points; nonempty totals sum to 100.00%.",
-  "repositories": [
-    {
-      "name": "sanyamjain0315/AI_music_generator",
-      "fork": false,
-      "language_bytes": 12535
-    },
-    {
-      "name": "sanyamjain0315/book-recommender",
-      "fork": false,
-      "language_bytes": 64677
-    },
-    {
-      "name": "sanyamjain0315/Breakout_algorithm_trading_bot",
-      "fork": false,
-      "language_bytes": 2482
-    },
-    {
-      "name": "sanyamjain0315/clone-impala",
-      "fork": false,
-      "language_bytes": 197622
-    },
-    {
-      "name": "sanyamjain0315/cuda-wildfirespread-simulation",
-      "fork": false,
-      "language_bytes": 499428
-    },
-    {
-      "name": "sanyamjain0315/facial-attendance-system",
-      "fork": false,
-      "language_bytes": 9140
-    },
-    {
-      "name": "sanyamjain0315/fashion_mnist",
-      "fork": false,
-      "language_bytes": 170091
-    },
-    {
-      "name": "sanyamjain0315/flask-blogsite",
-      "fork": false,
-      "language_bytes": 14410
-    },
-    {
-      "name": "sanyamjain0315/gca",
-      "fork": true,
-      "language_bytes": 217250
-    },
-    {
-      "name": "sanyamjain0315/generated-image-detection",
-      "fork": false,
-      "language_bytes": 15210178
-    },
-    {
-      "name": "sanyamjain0315/Legends-Monsters-and-Heroes",
-      "fork": false,
-      "language_bytes": 116775
-    },
-    {
-      "name": "sanyamjain0315/MedAI",
-      "fork": false,
-      "language_bytes": 0
-    },
-    {
-      "name": "sanyamjain0315/monsters-and-heros",
-      "fork": false,
-      "language_bytes": 50009
-    },
-    {
-      "name": "sanyamjain0315/Movie_review_analysis",
-      "fork": false,
-      "language_bytes": 39986
-    },
-    {
-      "name": "sanyamjain0315/Mumbai-House-price-prediction",
-      "fork": false,
-      "language_bytes": 72663
-    },
-    {
-      "name": "sanyamjain0315/NLP_20_newspapers",
-      "fork": false,
-      "language_bytes": 2131145
-    },
-    {
-      "name": "sanyamjain0315/NoDust",
-      "fork": false,
-      "language_bytes": 54556
-    },
-    {
-      "name": "sanyamjain0315/pyedifice_demo",
-      "fork": false,
-      "language_bytes": 2038
-    },
-    {
-      "name": "sanyamjain0315/rinex5",
-      "fork": true,
-      "language_bytes": 423
-    },
-    {
-      "name": "sanyamjain0315/sanyamjain0315",
-      "fork": false,
-      "language_bytes": 4490404
-    },
-    {
-      "name": "sanyamjain0315/Sentiment-analyser",
-      "fork": false,
-      "language_bytes": 1650
-    },
-    {
-      "name": "sanyamjain0315/Supabase_LlaMa",
-      "fork": true,
-      "language_bytes": 10682
-    },
-    {
-      "name": "sanyamjain0315/TCET-Web-Dev",
-      "fork": true,
-      "language_bytes": 68875
-    },
-    {
-      "name": "sanyamjain0315/Text-Emotions",
-      "fork": false,
-      "language_bytes": 16309
-    },
-    {
-      "name": "sanyamjain0315/topic-modelling-sample",
-      "fork": false,
-      "language_bytes": 421192
-    },
-    {
-      "name": "sanyamjain0315/yt-gatekeeper",
-      "fork": false,
-      "language_bytes": 7016
-    }
-  ],
   "languages": [
     {
       "name": "Jupyter Notebook",

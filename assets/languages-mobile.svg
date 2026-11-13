@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420" height="1092" viewBox="0 0 420 1092" role="img" aria-labelledby="title description">
-  <title id="title">All public repository languages · sanyamjain0315</title>
-  <desc id="description">Language byte percentages across all 26 public owned repositories, including forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved 2026-11-13T05:46:57Z. Percentages use largest-remainder rounding.</desc>
+  <title id="title">Repository languages · sanyamjain0315</title>
+  <desc id="description">Language byte percentages across 26 owned repositories. Scope: Public repositories only. Includes accessible forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved 2026-11-13T05:46:57Z. Percentages use largest-remainder rounding.</desc>
   <style>
     svg { --bg: #f6f8fc; --panel: #ffffff; --text: #17253d; --muted: #53627a; --border: #dce3ef; --track: #e7ecf5; }
     @media (prefers-color-scheme: dark) {
@@ -15,7 +15,7 @@
   <rect x="12" y="12" width="396" height="1068" rx="16" fill="var(--panel)"/>
 <text x="24" y="54" font-size="20" font-weight="750">Repository languages</text>
   <text x="24" y="84" font-size="18" class="muted">@sanyamjain0315</text>
-  <text x="24" y="112" font-size="18" class="muted">All public owned repositories</text>
+  <text x="24" y="112" font-size="18" class="muted">Public repositories only</text>
   <text x="24" y="144" font-size="18" class="muted">26 repositories · 16 languages</text>
   <text x="24" y="172" font-size="18" class="muted">23,881,536 code bytes</text>
 <defs><clipPath id="bar"><rect x="24" y="196" width="372" height="22" rx="11"/></clipPath></defs>
