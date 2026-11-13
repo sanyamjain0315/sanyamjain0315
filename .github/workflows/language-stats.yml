@@ -28,11 +28,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Generate aggregate public and private language assets
+      - name: Generate public repository language assets
         env:
-          # Read access to other private repositories; never used for git pushes.
-          LANGUAGE_STATS_TOKEN: ${{ secrets.LANGUAGE_STATS_TOKEN }}
-        run: python tools/build_language_stats.py --include-private
+          # Automatic token for public API rate limits; no personal token needed.
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/build_language_stats.py
       - name: Commit only the generated assets
         run: |
           git config user.name 'github-actions[bot]'

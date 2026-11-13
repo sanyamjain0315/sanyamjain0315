@@ -34,13 +34,10 @@ checked-in snapshots generated from GitHub's REST API. They are visible
 immediately, even before automation is enabled. The mobile layout is selected
 below 600px and keeps an intrinsic width of 420px instead of stretching.
 
-- The scheduled workflow discovers **public and private repositories owned by
-  `sanyamjain0315` that `LANGUAGE_STATS_TOKEN` can access**, including forks,
-  archived repositories, and this profile. Organization-owned and contributed
-  repositories are not included. The token must belong to the configured account.
-- Each card labels its actual snapshot scope. The existing checked-in snapshot
-  remains **public-only until the first successful authenticated workflow run**;
-  enabling private mode does not invent or relabel data that was never fetched.
+- Scope: **public repositories owned by `sanyamjain0315`**, including forks,
+  archived repositories, and this profile. Private, organization-owned, and
+  contributed repositories are excluded. New public repositories are discovered
+  automatically on each refresh using GitHub's public-user repository endpoint.
 - Every language reported by GitHub is displayed. Notebook files remain
   **Jupyter Notebook**; their bytes are not reassigned to Python.
 - The percentages sum **language bytes**, not repository counts, commits,
@@ -50,34 +47,27 @@ below 600px and keeps an intrinsic width of 420px instead of stretching.
 - `assets/languages.json` publishes **aggregate language bytes and percentages**,
   aggregate counts, scope, and retrieval time. Repository names, URLs, visibility
   breakdowns, and per-repository language totals are never published. Progress
-  logs and API error messages also omit repository identifiers. Combined language
-  totals and aggregate repository/fork counts still reveal some information
-  about private work; include private repositories only if that is acceptable.
+  logs and API error messages also omit repository identifiers. Private data is
+  not requested or included.
 
 ### Automatic weekly refresh
 
-Publish `.github/workflows/language-stats.yml`, `tools/build_language_stats.py`,
-and `tools/test_language_stats.py` along with the assets. Enable **GitHub Actions**
+Publish `.github/workflows/language-stats.yml` and
+`tools/build_language_stats.py` along with the assets. Enable **GitHub Actions**
 for the repository. The workflow runs on Mondays at **06:17 UTC**, and can also
 be run manually from **Actions → Refresh repository languages → Run
 workflow**. Scheduled runs can be delayed by GitHub.
 
-The generation step reads the repository Actions secret `LANGUAGE_STATS_TOKEN`.
-Use a fine-grained personal access token with **Contents: Read-only** for the
-repositories to include. Choose **All repositories** for your personal account
-if you want newly created private repositories picked up automatically; **Only
-selected repositories** requires updating the token's selection. Create the
-secret under **this repository → Settings → Secrets and variables → Actions**.
-Never put a token in a checked-in file, command argument, or chat.
+The workflow uses the automatic `GITHUB_TOKEN` for public API rate limits and
+saving the three generated assets to `main`. No personal access token or custom
+secret is needed. The former `LANGUAGE_STATS_TOKEN` secret is no longer read;
+you can remove it from this repository's Actions secrets. If the associated PAT
+was created only for this workflow, you can also revoke it in account settings.
 
-Private mode fails without a valid token instead of silently replacing the card
-with a public-only snapshot. Token expiration, inaccessible repositories, and
-API failures leave the existing assets intact. The token is exposed only to the
-generation step. Checkout and pushes continue using the separate automatic
-`GITHUB_TOKEN`; the read-only PAT is not used to push or stored in git config.
 Repository policies must allow the workflow token to push generated assets to
 `main`; branch protection may require a local update and PR instead. No external
-stats service or paid account is required.
+stats service or paid account is required. API failures leave existing assets
+intact. The workflow does not require a separately committed test script.
 
 To refresh public data locally with Python 3.11+ (optional `GITHUB_TOKEN` raises
 API limits):
@@ -86,23 +76,10 @@ API limits):
 python3 tools/build_language_stats.py
 ```
 
-For public and private data, supply `LANGUAGE_STATS_TOKEN` through your local
-secret manager or process environment, then run:
-
-```sh
-python3 tools/build_language_stats.py --include-private
-```
-
-GitHub Actions secrets are not automatically available to your local shell.
-The initial private-data refresh must run in Actions after these changes are
-published. Select **Actions → Refresh repository languages → Run workflow** to
-refresh immediately rather than waiting for Monday.
-
-Run the mocked API and privacy regression tests without any credentials:
-
-```sh
-python3 -m unittest discover -s tools -p 'test_language_stats.py' -v
-```
+Select **Actions → Refresh repository languages → Run workflow** after
+publishing these changes to refresh immediately rather than waiting for Monday.
+Private-repository collection and the `--include-private` option have been
+removed; even an authenticated run uses the public-only endpoint.
 
 There is no browser-side API call or visitor tracking. These are snapshots, not
 real-time stats; README images may additionally be cached by GitHub. Automatic

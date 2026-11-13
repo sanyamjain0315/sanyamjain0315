@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 """Build a GitHub language-byte card with Python's standard library.
 
-Default: public owned repositories. With --include-private, discover public and
-private owned repositories accessible to LANGUAGE_STATS_TOKEN. Forks and the
-profile repository count; organization/contributed repositories do not.
-Publish aggregate language bytes only, never repository names or inventories.
+Scope: public repositories owned by the configured user, including forks and
+the profile repository. Private, organization-owned, and contributed repositories
+are excluded. Publish aggregate language bytes, not repository inventories.
 This measures code composition, NOT proficiency; GitHub Linguist rules apply.
 
-GITHUB_TOKEN is optional for public mode. Private mode requires the separate
-LANGUAGE_STATS_TOKEN and fails closed rather than silently publishing public-only
-results. Every API call and validation finishes before assets are overwritten.
+GITHUB_TOKEN is optional for public API rate limits. No personal access token is
+required. Every API call and validation finishes before assets are overwritten.
 """
 
 import argparse
@@ -83,28 +81,23 @@ def api_get(path, *, token=None):
         raise StatsError("GitHub request or JSON decoding failed; no assets have been written.") from None
 
 
-def owned_repositories(include_private=False, token=None):
+def owned_repositories():
     repositories = []
     seen = set()
     page = 1
     while True:
         options = {"per_page": 100, "page": page, "sort": "full_name", "direction": "asc"}
-        if include_private:
-            options.update(visibility="all", affiliation="owner")
-            endpoint = "/user/repos"
-        else:
-            options["type"] = "owner"
-            endpoint = f"/users/{USERNAME}/repos"
+        options["type"] = "owner"
+        endpoint = f"/users/{USERNAME}/repos"
         query = urllib.parse.urlencode(options)
-        batch = api_get(f"{endpoint}?{query}", token=token)
+        batch = api_get(f"{endpoint}?{query}")
         if not isinstance(batch, list):
             raise StatsError("GitHub repository response was not a list.")
         for repo in batch:
             if (
                 not isinstance(repo, dict)
                 or not isinstance(repo.get("full_name"), str)
-                or not isinstance(repo.get("private"), bool)
-                or (not include_private and repo["private"])
+                or repo.get("private") is not False
                 or repo.get("owner", {}).get("login", "").lower() != USERNAME.lower()
                 or not isinstance(repo.get("fork"), bool)
             ):
@@ -113,7 +106,7 @@ def owned_repositories(include_private=False, token=None):
                 raise StatsError("Repository pagination returned a duplicate; rerun for a consistent snapshot.")
             seen.add(repo["full_name"])
             repositories.append(repo)
-        print(f"Repository page {page}: {len(batch)} accessible owned repositories", flush=True)
+        print(f"Repository page {page}: {len(batch)} public owned repositories", flush=True)
         if len(batch) < 100:
             return repositories
         page += 1
@@ -138,21 +131,13 @@ def language_rows(totals):
     ]
 
 
-def collect_stats(include_private=False):
-    token = None
-    if include_private:
-        token = os.environ.get("LANGUAGE_STATS_TOKEN", "").strip()
-        if not token:
-            raise StatsError("--include-private requires LANGUAGE_STATS_TOKEN; no assets have been written.")
-        account = api_get("/user", token=token)
-        if not isinstance(account, dict) or account.get("login", "").casefold() != USERNAME.casefold():
-            raise StatsError("LANGUAGE_STATS_TOKEN must belong to the configured profile account.")
-    repositories = owned_repositories(include_private, token)
+def collect_stats():
+    repositories = owned_repositories()
     totals = {}
     repositories_with_data = 0
     for index, repo in enumerate(repositories, start=1):
         name = repo["full_name"]
-        languages = api_get(f"/repos/{urllib.parse.quote(name, safe='/')}/languages", token=token)
+        languages = api_get(f"/repos/{urllib.parse.quote(name, safe='/')}/languages")
         if not isinstance(languages, dict) or any(
             not isinstance(language, str) or not language
             or type(count) is not int or count < 0
@@ -173,8 +158,7 @@ def collect_stats(include_private=False):
         "repositories_with_language_data": repositories_with_data,
         "scope": {
             **SCOPE,
-            "visibility": "public and private" if include_private else "public",
-            "coverage": "Token-accessible owned repositories" if include_private else "Public owned repositories",
+            "coverage": "Public owned repositories",
         },
         "total_bytes": sum(totals.values()),
         "language_count": len(totals),
@@ -200,8 +184,7 @@ def render_svg(stats, mobile=False):
     first_label_y = 258 if mobile else 210
     height = (420 if mobile else 302) + max(rows, 1) * 42
     date = stats["retrieved_at_utc"].split("T")[0]
-    private = stats["scope"]["visibility"] == "public and private"
-    scope_label = "Public + private (token-accessible)" if private else "Public repositories only"
+    scope_label = "Public repositories only"
     pieces = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{card_width}" height="{height}" viewBox="0 0 {card_width} {height}" role="img" aria-labelledby="title description">
   <title id="title">Repository languages · {USERNAME}</title>
   <desc id="description">Language byte percentages across {stats['repository_count']} owned repositories. Scope: {escape(scope_label)}. Includes accessible forks and the profile repository. All languages are shown in descending byte order. Code composition, not proficiency. Retrieved {escape(stats['retrieved_at_utc'])}. Percentages use largest-remainder rounding.</desc>
@@ -278,6 +261,8 @@ def render_svg(stats, mobile=False):
 
 def validate_outputs(stats, *svgs):
     languages = stats["languages"]
+    if stats["scope"].get("visibility") != "public":
+        raise StatsError("Only public-repository statistics may be published.")
     if sum(row["bytes"] for row in languages) != stats["total_bytes"]:
         raise StatsError("Language bytes do not match the total.")
     if "repositories" in stats or stats["scope"].get("repository_details_published") is not False:
@@ -299,10 +284,9 @@ def validate_outputs(stats, *svgs):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--include-private", action="store_true", help="Include owned repositories accessible to LANGUAGE_STATS_TOKEN")
-    args = parser.parse_args(argv)
+    parser.parse_args(argv)
     try:
-        stats = collect_stats(include_private=args.include_private)
+        stats = collect_stats()
         svg = render_svg(stats)
         mobile_svg = render_svg(stats, mobile=True)
         validate_outputs(stats, svg, mobile_svg)
