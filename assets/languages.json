@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
   "username": "sanyamjain0315",
-  "retrieved_at_utc": "2026-11-13T05:46:57Z",
-  "repository_count": 26,
+  "retrieved_at_utc": "2026-11-13T07:06:07Z",
+  "repository_count": 50,
   "fork_count": 4,
-  "repositories_with_language_data": 25,
+  "repositories_with_language_data": 48,
   "scope": {
-    "visibility": "public",
+    "visibility": "public and private",
     "ownership": "owned by sanyamjain0315 (not organization or contributed repositories)",
     "includes_forks": true,
     "includes_profile_repository": true,
@@ -15,61 +15,76 @@
     "deduplicated": false,
     "interpretation": "Repository code composition, not proficiency; GitHub Linguist rules apply.",
     "repository_details_published": false,
-    "coverage": "Public owned repositories"
+    "coverage": "Token-accessible owned repositories"
   },
-  "total_bytes": 23881536,
-  "language_count": 16,
+  "total_bytes": 43284213,
+  "language_count": 19,
   "percentage_rounding": "Largest remainder, 0.01 percentage points; nonempty totals sum to 100.00%.",
   "languages": [
     {
       "name": "Jupyter Notebook",
-      "bytes": 18472236,
-      "percentage": 77.35
+      "bytes": 37205004,
+      "percentage": 85.95
     },
     {
       "name": "HTML",
-      "bytes": 4511746,
-      "percentage": 18.89
+      "bytes": 4552896,
+      "percentage": 10.52
     },
     {
       "name": "Python",
-      "bytes": 294962,
-      "percentage": 1.24
+      "bytes": 592209,
+      "percentage": 1.37
+    },
+    {
+      "name": "Java",
+      "bytes": 349044,
+      "percentage": 0.81
     },
     {
       "name": "Cuda",
       "bytes": 244340,
-      "percentage": 1.02
-    },
-    {
-      "name": "Java",
-      "bytes": 164004,
-      "percentage": 0.69
+      "percentage": 0.56
     },
     {
       "name": "C",
-      "bytes": 101823,
-      "percentage": 0.43
+      "bytes": 102285,
+      "percentage": 0.24
+    },
+    {
+      "name": "Shell",
+      "bytes": 75229,
+      "percentage": 0.17
+    },
+    {
+      "name": "C++",
+      "bytes": 48754,
+      "percentage": 0.11
     },
     {
       "name": "TypeScript",
       "bytes": 41300,
-      "percentage": 0.17
-    },
-    {
-      "name": "JavaScript",
-      "bytes": 22527,
-      "percentage": 0.09
+      "percentage": 0.1
     },
     {
       "name": "CSS",
-      "bytes": 10895,
-      "percentage": 0.05
+      "bytes": 31873,
+      "percentage": 0.07
     },
     {
-      "name": "C++",
-      "bytes": 9175,
-      "percentage": 0.04
+      "name": "JavaScript",
+      "bytes": 24477,
+      "percentage": 0.06
+    },
+    {
+      "name": "MATLAB",
+      "bytes": 5221,
+      "percentage": 0.01
+    },
+    {
+      "name": "Go",
+      "bytes": 3218,
+      "percentage": 0.01
     },
     {
       "name": "Mermaid",
@@ -84,16 +99,16 @@
     {
       "name": "Makefile",
       "bytes": 1594,
-      "percentage": 0.01
-    },
-    {
-      "name": "Shell",
-      "bytes": 1048,
       "percentage": 0.0
     },
     {
       "name": "Dockerfile",
-      "bytes": 747,
+      "bytes": 958,
+      "percentage": 0.0
+    },
+    {
+      "name": "CMake",
+      "bytes": 672,
       "percentage": 0.0
     },
     {
