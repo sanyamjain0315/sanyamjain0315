@@ -23,7 +23,7 @@ const params = new URLSearchParams(location.search);
 const theme = params.get('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
 document.querySelector('#replay').href = `?theme=${document.documentElement.dataset.theme}`;
-</script></body></html>
+</script><script src="assets/summary-replay.js"></script></body></html>
 """
 preview.write_text(shell + marker + "\n" + body + controls)
 print("Rebuilt preview.html from README.md")

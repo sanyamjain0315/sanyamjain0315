@@ -44,10 +44,13 @@ sub { font-size: 12px; color: var(--muted); }
 <p align="center"><sub>Click the desktop to explore.</sub></p>
 <p><a name="summary"></a></p>
 <h2><img src="assets/heading-summary.svg" width="420" alt="Summary"></h2>
+<a href="https://sanyamjain0315.github.io/sanyamjain0315/summary.html">
 <picture>
   <source media="(max-width: 600px)" srcset="assets/summary-mobile.svg">
   <img src="assets/summary.svg" alt="I’m Sanyam, an M.S. Computer Science candidate at Boston University. I build event-driven backends and experiment with local AI agents. I’m happiest working out how a system behaves as events arrive, queues fill, and models make decisions. I believe AI should be open-source, private, and under its users’ control. That keeps me tinkering with local models—and learning something new about backend engineering every day.">
 </picture>
+</a>
+<p><sub>Click the summary to open its replayable version.</sub></p>
 <details>
 <summary>Read the plain-text summary</summary>
 <p>I’m <strong>Sanyam</strong>, an M.S. Computer Science candidate at <strong>Boston University</strong>. I build event-driven backends and experiment with local AI agents. I’m happiest working out how a system behaves as events arrive, queues fill, and models make decisions.</p>
@@ -109,4 +112,4 @@ const params = new URLSearchParams(location.search);
 const theme = params.get('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
 document.querySelector('#replay').href = `?theme=${document.documentElement.dataset.theme}`;
-</script></body></html>
+</script><script src="assets/summary-replay.js"></script></body></html>

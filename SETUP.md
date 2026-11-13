@@ -133,6 +133,15 @@ reduced motion or when animation support is unavailable. Reduced motion hides
 SMIL groups rather than incorrectly relying on `animation: none` to stop them.
 Heading and summary animation is finite and does not loop.
 
+Clicking the summary in the GitHub README opens `summary.html`, where clicking
+it (or pressing Enter/Space on its button) restarts the animation. Publish this
+page and `assets/summary-replay.js` with the other Pages files. The README itself
+cannot run JavaScript or restart an SVG image on click; the linked page is the
+interactive fallback. The local `preview.html` supports in-place click replay
+using the same script. Replay respects reduced motion and leaves the summary
+static when that preference is enabled. With JavaScript disabled, reloading the
+replay page is the fallback.
+
 To edit the summary or heading labels, update `tools/build_profile_motion.py`,
 then run:
 

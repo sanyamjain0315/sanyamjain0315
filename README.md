@@ -11,10 +11,14 @@
 
 ## <img src="assets/heading-summary.svg" width="420" alt="Summary">
 
+<a href="https://sanyamjain0315.github.io/sanyamjain0315/summary.html">
 <picture>
   <source media="(max-width: 600px)" srcset="assets/summary-mobile.svg">
   <img src="assets/summary.svg" alt="I’m Sanyam, an M.S. Computer Science candidate at Boston University. I build event-driven backends and experiment with local AI agents. I’m happiest working out how a system behaves as events arrive, queues fill, and models make decisions. I believe AI should be open-source, private, and under its users’ control. That keeps me tinkering with local models—and learning something new about backend engineering every day.">
 </picture>
+</a>
+
+<sub>Click the summary to open its replayable version.</sub>
 
 <details>
 <summary>Read the plain-text summary</summary>
