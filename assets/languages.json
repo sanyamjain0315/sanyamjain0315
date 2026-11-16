@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "username": "sanyamjain0315",
-  "retrieved_at_utc": "2026-11-13T07:20:25Z",
+  "retrieved_at_utc": "2026-11-16T15:44:26Z",
   "repository_count": 20,
   "fork_count": 4,
   "repositories_with_language_data": 18,
@@ -20,69 +20,69 @@
     "repository_details_published": false,
     "coverage": "Public owned repositories"
   },
-  "total_bytes": 895038,
+  "total_bytes": 938468,
   "language_count": 14,
   "percentage_rounding": "Largest remainder, 0.01 percentage points; nonempty totals sum to 100.00%.",
   "languages": [
     {
       "name": "Python",
-      "bytes": 292796,
-      "percentage": 32.71
+      "bytes": 335102,
+      "percentage": 35.71
     },
     {
       "name": "Cuda",
       "bytes": 244340,
-      "percentage": 27.3
+      "percentage": 26.04
     },
     {
       "name": "Java",
       "bytes": 164004,
-      "percentage": 18.32
+      "percentage": 17.48
     },
     {
       "name": "C",
       "bytes": 101823,
-      "percentage": 11.38
+      "percentage": 10.85
     },
     {
       "name": "TypeScript",
       "bytes": 41300,
-      "percentage": 4.61
+      "percentage": 4.4
     },
     {
       "name": "JavaScript",
-      "bytes": 22527,
+      "bytes": 23651,
       "percentage": 2.52
     },
     {
       "name": "CSS",
       "bytes": 10895,
-      "percentage": 1.22
+      "percentage": 1.16
     },
     {
       "name": "C++",
       "bytes": 9175,
-      "percentage": 1.03
+      "percentage": 0.98
     },
     {
       "name": "Mermaid",
       "bytes": 2648,
-      "percentage": 0.3
+      "percentage": 0.28
     },
     {
       "name": "PLpgSQL",
       "bytes": 2368,
-      "percentage": 0.26
+      "percentage": 0.25
     },
     {
       "name": "Makefile",
       "bytes": 1594,
-      "percentage": 0.18
+      "percentage": 0.17
     },
     {
       "name": "Shell",
       "bytes": 780,
-      "percentage": 0.09
+      "percentage": 0.08
     },
     {
       "name": "Dockerfile",
