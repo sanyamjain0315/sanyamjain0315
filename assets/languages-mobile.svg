@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420" height="1008" viewBox="0 0 420 1008" role="img" aria-labelledby="title description">
   <title id="title">Repository languages · sanyamjain0315</title>
-  <desc id="description">Language byte percentages across 20 owned repositories. Scope: Public repositories only. Includes accessible forks and the profile repository. HTML and Jupyter Notebook are excluded from both the displayed languages and the percentage denominator. Remaining languages are shown in descending byte order. Code composition, not proficiency. Retrieved 2026-11-16T15:44:26Z. Percentages use largest-remainder rounding.</desc>
+  <desc id="description">Language byte percentages across 20 owned repositories. Scope: Public repositories only. Includes accessible forks and the profile repository. HTML and Jupyter Notebook are excluded from both the displayed languages and the percentage denominator. Remaining languages are shown in descending byte order. Code composition, not proficiency. Retrieved 2026-11-23T18:05:55Z. Percentages use largest-remainder rounding.</desc>
   <style>
     svg { --bg: #f6f8fc; --panel: #ffffff; --text: #17253d; --muted: #53627a; --border: #dce3ef; --track: #e7ecf5; }
     @media (prefers-color-scheme: dark) {
@@ -55,6 +55,6 @@
 <text x="24" y="873" font-size="18" class="muted">Excludes HTML + Jupyter Notebook.</text>
 <text x="24" y="899" font-size="18" class="muted">GitHub code bytes, not proficiency.</text>
 <text x="24" y="925" font-size="18" class="muted">Duplicated fork code counts.</text>
-<text x="24" y="951" font-size="18" class="muted">Retrieved 2026-11-16 UTC</text>
+<text x="24" y="951" font-size="18" class="muted">Retrieved 2026-11-23 UTC</text>
 <text x="24" y="977" font-size="18" class="muted">Rounded percentages total 100.00%.</text>
 </svg>
